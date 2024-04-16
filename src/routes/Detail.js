@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 function Detail() {
   const { id } = useParams();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getMovie = async () => {
     const json = await (
       await fetch(
@@ -12,7 +13,7 @@ function Detail() {
   };
   useEffect(() => {
     Promise.resolve(getMovie());
-  }, []);
+  }, [getMovie]);
   return <h1>Detail</h1>;
 }
 
